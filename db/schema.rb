@@ -16,8 +16,10 @@ ActiveRecord::Schema.define(version: 2021_09_10_215232) do
   enable_extension "plpgsql"
 
   create_table "reservations", force: :cascade do |t|
-    t.string "place_number"
-    t.decimal "seats_numbers"
+    t.decimal "person_count"
+    t.jsonb "dishes"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,10 +34,8 @@ ActiveRecord::Schema.define(version: 2021_09_10_215232) do
   end
 
   create_table "tables", force: :cascade do |t|
-    t.decimal "person_count"
-    t.jsonb "dishes"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string "place_number"
+    t.decimal "seats_numbers"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
