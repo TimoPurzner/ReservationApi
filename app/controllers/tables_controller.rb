@@ -46,6 +46,6 @@ class TablesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def table_params
-      params.fetch(:table, {})
+      params.require(:table).permit(:place_number, :seats_numbers)
     end
 end
