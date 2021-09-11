@@ -7,4 +7,11 @@ class GastroController < ApplicationController
         # user.as_json(:include => { :posts => { :include => { :comments => { :only => :body } },
     end
 
+    def table_reservation
+        ReservationTable.create(
+            table_id: params[:table_id],
+            reservation_id: params[:reservation_id]
+        ).save
+    end
+
 end
