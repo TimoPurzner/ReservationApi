@@ -5,12 +5,12 @@ class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
 
-    render json: @reservations
+    render json: @reservations, :include => {:reservation_tables => {include: :table}}
   end
 
   # GET /reservations/1
   def show
-    render json: @reservation
+    render json: @reservation, :include => {:reservation_tables => {include: :table}}
   end
 
   # POST /reservations
